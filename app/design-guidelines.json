@@ -1,0 +1,134 @@
+{
+  "theme": "Light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast)",
+  "global_rules": {
+    "accessibility": "High contrast ratio for sunlight visibility. Minimum 7:1 for text.",
+    "testing": "All interactive elements MUST have data-testid attributes.",
+    "language": "pt-BR",
+    "aesthetic": "Public health / epidemiological surveillance. Strictly no purple/violet AI slop gradients."
+  },
+  "colors": {
+    "mobile_palette": {
+      "background": "#FFFFFF",
+      "surface": "#F3F4F6",
+      "text_primary": "#000000",
+      "text_secondary": "#111827",
+      "border": "#9CA3AF",
+      "primary": "#1D4ED8",
+      "primary_active": "#1E3A8A",
+      "status_visited": "#16A34A",
+      "status_closed": "#D97706",
+      "status_danger": "#DC2626",
+      "sync_online": "#16A34A",
+      "sync_offline": "#4B5563"
+    },
+    "web_palette": {
+      "background": "#F8FAFC",
+      "surface": "#FFFFFF",
+      "text_primary": "#0F172A",
+      "text_secondary": "#334155",
+      "border": "#CBD5E1",
+      "primary": "#2563EB",
+      "status_visited": "#22C55E",
+      "status_closed": "#F59E0B",
+      "status_danger": "#EF4444"
+    }
+  },
+  "typography": {
+    "family": {
+      "headings": "Work Sans, sans-serif",
+      "body": "IBM Plex Sans, sans-serif",
+      "mobile": "System UI"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl font-black tracking-tighter",
+      "h2": "text-2xl sm:text-3xl font-bold tracking-tight",
+      "h3": "text-xl font-semibold tracking-tight",
+      "body": "text-base font-medium",
+      "label": "text-sm font-bold tracking-widest uppercase",
+      "button_large": "text-xl font-bold"
+    }
+  },
+  "spacing_and_layout": {
+    "mobile": {
+      "operation": "Monomanual (One-handed operation)",
+      "action_zones": "Bottom 50% of the screen for primary actions. Important CTAs fixed at bottom.",
+      "button_height": "min-h-[64px] or h-16 (Tailwind)",
+      "padding": "p-4 to p-6 for generous hit areas.",
+      "gap": "gap-4 between form groups, gap-2 within items."
+    },
+    "web": {
+      "layout": "Sidebar navigation (left) + Main Content (right) dashboard.",
+      "grid": "Control Room Grid (grid-cols-1 md:grid-cols-4) with gap-6.",
+      "padding": "p-8 for containers"
+    }
+  },
+  "components": {
+    "mobile": {
+      "large_action_button": {
+        "description": "Botão GRANDE 'Novo Registro'",
+        "style": "h-20 bg-[#1D4ED8] text-white text-2xl font-bold rounded-2xl shadow-md flex items-center justify-center w-full active:bg-[#1E3A8A] mb-4",
+        "icon": "MaterialIcons 'add-circle-outline'"
+      },
+      "status_pills": {
+        "description": "Visitado, Fechado, Foco",
+        "style": "px-4 py-3 rounded-full font-bold text-sm uppercase flex items-center gap-2 border-2",
+        "variants": {
+          "visitado": "bg-[#DCFCE7] text-[#166534] border-[#16A34A]",
+          "fechado": "bg-[#FEF3C7] text-[#92400E] border-[#D97706]",
+          "foco": "bg-[#FEE2E2] text-[#991B1B] border-[#DC2626]"
+        }
+      },
+      "criadouro_chips": {
+        "description": "Calha, Pneu, Caixa D'água, Lixo, Vasos",
+        "style": "h-16 flex items-center justify-center px-4 rounded-xl border-2 border-[#9CA3AF] bg-white font-bold text-black active:border-[#1D4ED8] active:bg-[#EFF6FF]",
+        "icons_recommendation": "MaterialCommunityIcons for 'tire', 'delete', 'water', 'flower'"
+      },
+      "sync_status_bar": {
+        "description": "Online/Offline indicator",
+        "style": "h-10 w-full flex items-center justify-center text-xs font-bold uppercase tracking-widest text-white",
+        "variants": {
+          "online": "bg-[#16A34A]",
+          "offline": "bg-[#4B5563]"
+        }
+      },
+      "login_form": {
+        "description": "Matrícula + Senha",
+        "style": "Inputs with h-16, text-lg, border-2 border-[#9CA3AF] rounded-lg p-4 bg-white focus:border-[#1D4ED8]",
+        "button": "h-16 w-full bg-[#1D4ED8] text-white font-bold rounded-lg mt-8"
+      }
+    },
+    "web": {
+      "kpi_cards": {
+        "description": "Total visitas, imóveis fechados, focos, taxa de sync",
+        "style": "bg-white p-6 rounded-xl border border-[#CBD5E1] shadow-sm flex flex-col justify-between"
+      },
+      "heatmap_container": {
+        "description": "Leaflet map container",
+        "style": "h-[600px] w-full rounded-2xl overflow-hidden border border-[#CBD5E1] relative z-0"
+      },
+      "filter_chips": {
+        "description": "Data, Bairro, Tipo",
+        "style": "h-10 px-4 rounded-full border border-[#CBD5E1] bg-white text-sm font-semibold text-[#0F172A] hover:bg-[#F1F5F9] cursor-pointer"
+      },
+      "risk_zone_list": {
+        "description": "Lista de zonas de alto risco",
+        "style": "bg-white rounded-xl border border-[#CBD5E1] divide-y divide-[#F1F5F9]"
+      },
+      "alert_button": {
+        "description": "Disparar Alerta SMS/WhatsApp",
+        "style": "h-12 px-6 bg-[#DC2626] text-white font-bold rounded-lg shadow hover:bg-[#B91C1C] flex items-center gap-2"
+      }
+    }
+  },
+  "instructions_to_main_agent": [
+    "Mobile Field App: ALL primary buttons must be strictly 56px-64px minimum height and positioned in the lower half of the screen for monomanual (one-handed) operation.",
+    "Mobile Contrast Rule: Ensure pure solid borders (2px) on form elements and chips so they do not wash out under bright sunlight.",
+    "Aesthetic: Strictly public health. Use the defined Work Sans & IBM Plex Sans. NO AI slop gradients. NO purple or teal.",
+    "Testing: Add data-testid attributes to EVERY interactive element (buttons, inputs, filters).",
+    "Language: Entire app, including placeholders and statuses, must be in pt-BR.",
+    "Icons: Use @expo/vector-icons (MaterialIcons/MaterialCommunityIcons).",
+    "Registration Flow: Keep the mobile reporting flow to 3 clicks maximum. Use large target chips for 'Visitado', 'Fechado', 'Foco'.",
+    "Dashboard: Use Shadcn components for Web but customize to remove the generic 'Vercel look' by applying solid defined borders and high contrast typography."
+  ]
+}
