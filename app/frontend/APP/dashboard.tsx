@@ -154,7 +154,7 @@ export default function DashboardScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View style={{ flex: 1 }}>
-            <Text style={styles.brandSmall}>SaúdeFoco · Painel do Gestor</Text>
+            <Text style={styles.brandSmall}>VigiAr · Painel do Gestor</Text>
             <Text style={styles.title}>Vigilância de Endemias</Text>
             <Text style={styles.subtitle}>Olá, {user.nome} — {user.setor}</Text>
           </View>
