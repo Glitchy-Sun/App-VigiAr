@@ -24,5 +24,4 @@
   "eslint.useFlatConfig": true,
 
   // Python": "Backend lives in /app/backend",
-  "python.analysis.extraPaths": ["./backend"]
-}
+  "python.analysis.extraPaths": ["./backend"]}
