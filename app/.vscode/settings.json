@@ -1,0 +1,28 @@
+{
+  // Why": "Forces the editor to use the workspace TypeScript (5.9.3 in node_modules) instead of the bundled one. The Expo tsconfig uses moduleResolution: 'bundler' and customConditions: ['react-native'], which need TS >= 5.0. Older VSCode-bundled TS will (incorrectly) report './storage-base' as missing.",
+
+  "js/ts.tsdk.path": "frontend/node_modules/typescript/lib",
+  // Deprecated: "typescript.enablePromptUseWorkspaceTsdk" replaced by
+  // "js/ts.tsdk.promptToUseWorkspaceVersion".
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  // Deprecated: use js/ts.preferences.importModuleSpecifier instead of typescript.preferences.importModuleSpecifier
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
+  // Deprecated: use js/ts.tsserver.maxMemory instead
+  "js/ts.tsserver.maxMemory": 4096,
+  // Deprecated: use js/ts.validate.enabled instead
+  "js/ts.validate.enabled": true,
+
+  // File associations": "Helpful so .tsx is treated like ts",
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.ts": "typescript"
+  },
+
+  // Eslint": "Use the workspace eslint flat config",
+  "eslint.workingDirectories": ["./frontend"],
+  "eslint.useFlatConfig": true,
+
+  // Python": "Backend lives in /app/backend",
+  "python.analysis.extraPaths": ["./backend"]
+}

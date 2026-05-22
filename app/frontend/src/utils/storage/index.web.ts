@@ -1,20 +1,18 @@
-// Native storage (Metro picks index.web.ts on web)
+// Web storage (Metro picks index.ts on native).
 // Self-contained: all shared types and the abstract base are defined here to
 // avoid a relative ./storage-base import that some editors (with TS < 5.0) flag
 // incorrectly under Expo's moduleResolution: \"bundler\".
 // Helpers never throw: reads return `fallback`, writes return `false`.
 // Values supported: string | number | boolean | null (JSON-serialized on disk).
 // Usage: import { storage } from \"@/src/utils/storage\"; await storage.getItem(key, fallback);
+// No Keychain on web — secure* helpers reuse AsyncStorage (no expo-secure-store).
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as SecureStore from "expo-secure-store";
 
 // ───────────────────── Shared types & base ─────────────────────
 export type StorageItemKey = string;
 export type StorageItemValue = string | number | boolean | null;
 
-// Helper for subclasses to enforce that they don't declare methods beyond
-// StorageBase. Use as: type _ = AssertNoExtras<Exclude<keyof Storage, keyof StorageBase>>;
 export type AssertNoExtras<T extends never> = T;
 
 export abstract class StorageBase {
@@ -22,9 +20,6 @@ export abstract class StorageBase {
     console.warn(`[storage] ${op}(${key}) failed`, e);
   }
 
-  // raw is whatever AsyncStorage / SecureStore returned: a JSON-encoded string
-  // (because setItem always JSON.stringifies) or null if the key was missing.
-  // We always JSON.parse so values round-trip correctly across types.
   protected retrieve<Fallback extends StorageItemValue>(
     raw: string | null,
     fallback: Fallback,
@@ -58,9 +53,9 @@ export abstract class StorageBase {
   abstract secureRemove(key: string): Promise<boolean>;
 }
 
-// ───────────────────── Native implementation ─────────────────────
+// ───────────────────── Web implementation ─────────────────────
 export class Storage extends StorageBase {
-  // General KV — backed by AsyncStorage.
+  // General KV — backed by AsyncStorage (its built-in web shim uses IndexedDB).
   async getItem<Fallback extends StorageItemValue>(
     key: string,
     fallback: Fallback,
@@ -97,41 +92,23 @@ export class Storage extends StorageBase {
     }
   }
 
-  // Sensitive values — Keychain (iOS) / EncryptedSharedPreferences (Android).
+  // Browsers have no Keychain — secure* helpers fall through to AsyncStorage.
   async secureGet<Fallback extends StorageItemValue>(
     key: string,
     fallback: Fallback,
   ): Promise<Fallback | null> {
-    try {
-      const raw = await SecureStore.getItemAsync(key);
-      return this.retrieve(raw, fallback);
-    } catch (e) {
-      this.warn("secureGet", key, e);
-      return fallback;
-    }
+    return this.getItem(key, fallback);
   }
 
   async secureSet<Value extends StorageItemValue>(
     key: string,
     value: Value,
   ): Promise<boolean> {
-    try {
-      await SecureStore.setItemAsync(key, JSON.stringify(value));
-      return true;
-    } catch (e) {
-      this.warn("secureSet", key, e);
-      return false;
-    }
+    return this.setItem(key, value);
   }
 
   async secureRemove(key: string): Promise<boolean> {
-    try {
-      await SecureStore.deleteItemAsync(key);
-      return true;
-    } catch (e) {
-      this.warn("secureRemove", key, e);
-      return false;
-    }
+    return this.removeItem(key);
   }
 }
 
