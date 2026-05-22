@@ -10,7 +10,7 @@ export interface AuthUser {
   setor: string;
 }
 
-const USER_KEY = "saudefoco.user";
+const USER_KEY = "vigiar.user";
 
 interface AuthState {
   loading: boolean;

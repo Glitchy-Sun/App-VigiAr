@@ -2,7 +2,7 @@
 // Storage-backed (AsyncStorage on native, localStorage on web) JSON array.
 import { storage } from "../utils/storage";
 
-const QUEUE_KEY = "saudefoco.pending.visitas";
+const QUEUE_KEY = "vigiar.pending.visitas";
 
 export type CriadouroTipo = "calha" | "pneu" | "caixa_dagua" | "vasos" | "lixo" | "outros";
 export type VisitaStatus = "visitada" | "fechada";

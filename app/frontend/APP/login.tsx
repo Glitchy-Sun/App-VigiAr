@@ -51,7 +51,7 @@ export default function LoginScreen() {
           <View style={styles.logo}>
             <MaterialIcons name="health-and-safety" size={48} color={COLORS.primary} />
           </View>
-          <Text style={styles.brand}>SaúdeFoco</Text>
+          <Text style={styles.brand}>VigiAr</Text>
           <Text style={styles.sub}>Combate ao Aedes aegypti</Text>
         </View>
 

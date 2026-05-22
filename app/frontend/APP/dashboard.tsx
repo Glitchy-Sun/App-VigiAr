@@ -298,7 +298,7 @@ export default function DashboardScreen() {
           )}
         </View>
 
-        <Text style={styles.footer}>SaúdeFoco · MVP · {new Date().getFullYear()} · MOCK SMS/WhatsApp</Text>
+        <Text style={styles.footer}>VigiAr · MVP · {new Date().getFullYear()} · MOCK SMS/WhatsApp</Text>
       </ScrollView>
     </SafeAreaView>
   );

@@ -2,7 +2,7 @@
 import { storage } from "../utils/storage";
 
 const BASE = ((globalThis as any).process?.env?.EXPO_PUBLIC_BACKEND_URL as string) || "";
-const TOKEN_KEY = "saudefoco.token";
+const TOKEN_KEY = "vigiar.token";
 
 export async function getToken(): Promise<string | null> {
   return (await storage.secureGet<string>(TOKEN_KEY, "")) || null;
