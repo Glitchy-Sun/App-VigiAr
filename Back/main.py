@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI  # type: ignore[import]
 from contextlib import asynccontextmanager
 from app.db.database import init_db
 

@@ -1,7 +1,13 @@
+import importlib.util
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+dotenv_spec = importlib.util.find_spec("dotenv")
+if dotenv_spec is not None:
+    load_dotenv = importlib.import_module("dotenv").load_dotenv
+    load_dotenv()
+else:
+    def load_dotenv(*args, **kwargs):
+        return False
 
 class Settings:
     PROJECT_NAME: str = "API APP-VIGIAR"
