@@ -1,5 +1,5 @@
 // Thin fetch wrapper used by both the agent app and the manager dashboard.
-import { storage } from "../utils/storage";
+import { storage } from "../utils";
 
 const BASE = ((globalThis as any).process?.env?.EXPO_PUBLIC_BACKEND_URL as string) || "";
 const TOKEN_KEY = "vigiar.token";
