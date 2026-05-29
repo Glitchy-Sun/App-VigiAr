@@ -12,9 +12,9 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useAuth } from "../src/context/AuthContext";
-import { ApiError } from "../src/api/client";
-import { COLORS, RADIUS, SPACING } from "../src/theme";
+import { useAuth } from "../context/AuthContext";
+import { ApiError } from "../api/client";
+import { COLORS, RADIUS, SPACING } from "../theme";
 
 export default function LoginScreen() {
   const { login } = useAuth();

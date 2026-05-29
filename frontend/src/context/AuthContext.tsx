@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { storage } from "../utils/storage";
+import { storage } from "../utils";
 import { api, setToken } from "../api/client";
 
 export type Role = "agente" | "gestor";

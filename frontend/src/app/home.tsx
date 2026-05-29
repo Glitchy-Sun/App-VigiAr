@@ -3,9 +3,9 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useAuth } from "../src/context/AuthContext";
-import { useSync } from "../src/hooks/useSync";
-import { COLORS, RADIUS, SPACING } from "../src/theme";
+import { useAuth } from "../context/AuthContext";
+import { useSync } from "../hooks/useSync";
+import { COLORS, RADIUS, SPACING } from "../theme";
 
 export default function HomeScreen() {
   const { user, logout } = useAuth();

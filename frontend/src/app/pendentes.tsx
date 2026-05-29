@@ -3,9 +3,9 @@ import { FlatList, Pressable, RefreshControl, StyleSheet, Text, View } from "rea
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { localDB, PendingVisita } from "../src/db/localdb";
-import { useSync } from "../src/hooks/useSync";
-import { COLORS, RADIUS, SPACING } from "../src/theme";
+import { localDB, PendingVisita } from "../db/localdb";
+import { useSync } from "../hooks/useSync";
+import { COLORS, RADIUS, SPACING } from "../theme";
 
 export default function PendentesScreen() {
   const [items, setItems] = useState<PendingVisita[]>([]);
