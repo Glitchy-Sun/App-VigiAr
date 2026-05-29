@@ -1,6 +1,6 @@
 // Offline-first local queue for "visitas" pending sync.
 // Storage-backed (AsyncStorage on native, localStorage on web) JSON array.
-import { storage } from "../utils";
+import { storage } from "../utils/storage";
 
 const QUEUE_KEY = "vigiar.pending.visitas";
 
